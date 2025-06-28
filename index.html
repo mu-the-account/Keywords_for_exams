@@ -49,6 +49,12 @@
             📚 Keywords For Exam 🧠
         </h1>
 
+        <div class="flex justify-center items-center mt-8 space-x-4">
+            <button id="prev-section-btn" class="pagination-button">Previous Section</button>
+            <span id="current-section-info" class="text-lg font-medium text-gray-700"></span>
+            <button id="next-section-btn" class="pagination-button">Next Section</button>
+        </div>
+
         <div id="keywords-container">
             <!-- Keywords will be loaded here by JavaScript -->
         </div>
@@ -61,9 +67,6 @@
 
         <div class="mt-10 pt-6 border-t-2 border-blue-200 text-center text-gray-600">
             <p class="text-sm">Generated with ❤️ by your AI assistant.</p>
-            <p class="text-xs mt-2">
-                To use your own keywords, edit the `fullPageKeywordsData` array in the script section.
-            </p>
         </div>
     </div>
 
@@ -88,7 +91,7 @@
         const nextSectionBtn = document.getElementById('next-section-btn');
         const currentSectionInfo = document.getElementById('current-section-info');
 
-        const PAGES_PER_SECTION = 20;
+        const PAGES_PER_SECTION = 10;
         let currentSectionIndex = 0; // Always start at the first section of the sliced data
 
         // Function to render keywords for the current section
