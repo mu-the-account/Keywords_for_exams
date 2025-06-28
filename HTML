@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Mnemonics</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles if needed, though Tailwind should cover most */
+        body {
+            font-family: "Inter", sans-serif;
+            background-color: #f3f4f6; /* Light gray background */
+        }
+        .container {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .page-header {
+            background-color: #e0f2fe; /* Light blue */
+            border-bottom: 2px solid #a7d9f7;
+        }
+        .mnemonic-item {
+            background-color: #ffffff; /* White background for each mnemonic */
+            border-left: 4px solid #60a5fa; /* Blue accent */
+        }
+        .pagination-button {
+            @apply px-4 py-2 rounded-lg font-semibold transition-all duration-200 ease-in-out;
+            background-image: linear-gradient(to right, #60a5fa 0%, #3b82f6 100%);
+            color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: none;
+        }
+        .pagination-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        .pagination-button:disabled {
+            background-image: linear-gradient(to right, #9ca3af 0%, #6b7280 100%);
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+    </style>
+</head>
+<body class="p-4 sm:p-6 md:p-8">
+    <div class="container mx-auto max-w-4xl bg-white rounded-xl shadow-lg p-6 sm:p-8 md:p-10">
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-center text-gray-800 mb-8 pb-4 border-b-2 border-blue-200">
+            📚 Mnemonics for Your Book 🧠
+        </h1>
+
+        <div id="mnemonics-container">
+            <!-- Mnemonics will be loaded here by JavaScript -->
+        </div>
+
+        <div class="flex justify-center items-center mt-8 space-x-4">
+            <button id="prev-section-btn" class="pagination-button">Previous Section</button>
+            <span id="current-section-info" class="text-lg font-medium text-gray-700"></span>
+            <button id="next-section-btn" class="pagination-button">Next Section</button>
+        </div>
+
+        <div class="mt-10 pt-6 border-t-2 border-blue-200 text-center text-gray-600">
+            <p class="text-sm">Generated with ❤️ by your AI assistant.</p>
+            <p class="text-xs mt-2">
+                To use your own mnemonics, edit the `pageMnemonicsData` array in the script section.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // THIS IS WHERE YOU WILL PASTE YOUR AI GENERATED MNEMONICS
+        // Each inner array represents a page, and its elements are the mnemonics for that page.
+        // Example: page 1 has "Mnemonic A", "Mnemonic B"
+        //          page 2 has "Mnemonic C"
+        const pageMnemonicsData = [
+            ["Mnemonic for the first paragraph of Page 1.", "Another mnemonic for a key concept on Page 1."],
+            ["A vivid mnemonic for an important fact on Page 2.", "Remember this concept easily with a catchy phrase on Page 2."],
+            ["Mnemonic covering the main idea of Page 3."],
+            ["Complex idea simplification for Page 4.", "Secondary point mnemonic on Page 4."],
+            ["Mnemonic for Page 5 - Item 1", "Mnemonic for Page 5 - Item 2"],
+            ["Mnemonic for Page 6 - Item 1"],
+            ["Mnemonic for Page 7 - Item 1", "Mnemonic for Page 7 - Item 2", "Mnemonic for Page 7 - Item 3"],
+            ["Mnemonic for Page 8 - Item 1"],
+            ["Mnemonic for Page 9 - Item 1"],
+            ["Mnemonic for Page 10 - Item 1", "Mnemonic for Page 10 - Item 2"],
+            ["Mnemonic for Page 11 - Item 1"],
+            ["Mnemonic for Page 12 - Item 1", "Mnemonic for Page 12 - Item 2"],
+            ["Mnemonic for Page 13 - Item 1"],
+            ["Mnemonic for Page 14 - Item 1", "Mnemonic for Page 14 - Item 2"],
+            ["Mnemonic for Page 15 - Item 1"],
+            ["Mnemonic for Page 16 - Item 1", "Mnemonic for Page 16 - Item 2", "Mnemonic for Page 16 - Item 3"],
+            ["Mnemonic for Page 17 - Item 1"],
+            ["Mnemonic for Page 18 - Item 1"],
+            ["Mnemonic for Page 19 - Item 1", "Mnemonic for Page 19 - Item 2"],
+            ["Mnemonic for Page 20 - Item 1"], // End of Section 1
+            ["Mnemonic for Page 21 - Item 1"],
+            ["Mnemonic for Page 22 - Item 1", "Mnemonic for Page 22 - Item 2"],
+            ["Mnemonic for Page 23 - Item 1"],
+            ["Mnemonic for Page 24 - Item 1", "Mnemonic for Page 24 - Item 2", "Mnemonic for Page 24 - Item 3"],
+            ["Mnemonic for Page 25 - Item 1"],
+            ["Mnemonic for Page 26 - Item 1"],
+            ["Mnemonic for Page 27 - Item 1", "Mnemonic for Page 27 - Item 2"],
+            ["Mnemonic for Page 28 - Item 1"],
+            ["Mnemonic for Page 29 - Item 1", "Mnemonic for Page 29 - Item 2"],
+            ["Mnemonic for Page 30 - Item 1"],
+            ["Mnemonic for Page 31 - Item 1"],
+            ["Mnemonic for Page 32 - Item 1", "Mnemonic for Page 32 - Item 2"],
+            ["Mnemonic for Page 33 - Item 1"],
+            ["Mnemonic for Page 34 - Item 1", "Mnemonic for Page 34 - Item 2", "Mnemonic for Page 34 - Item 3"],
+            ["Mnemonic for Page 35 - Item 1"],
+            ["Mnemonic for Page 36 - Item 1"],
+            ["Mnemonic for Page 37 - Item 1", "Mnemonic for Page 37 - Item 2"],
+            ["Mnemonic for Page 38 - Item 1"],
+            ["Mnemonic for Page 39 - Item 1", "Mnemonic for Page 39 - Item 2"],
+            ["Mnemonic for Page 40 - Item 1"], // End of Section 2
+            ["Mnemonic for Page 41 - Item 1", "Mnemonic for Page 41 - Item 2"],
+            ["A vivid mnemonic for an important fact on Page 42.", "Remember this concept easily with a catchy phrase on Page 42."],
+            ["Mnemonic covering the main idea of Page 43."],
+            ["Complex idea simplification for Page 44.", "Secondary point mnemonic on Page 44."],
+            ['💡 The **diencephalon** includes the **thalamus**, **hypothalamus**, **epithalamus**, and **subthalamus**.', '🔬 The cavity of the diencephalon is the **3rd ventricle**.', '💡 The diencephalon is divided by the **hypothalamic sulcus**.', '🔬 The **dorsal part** of the diencephalon includes the Thalamus, Metathalamus (**MGB** & **LGB**), and Epithalamus (**pineal body**, habenular nuclei, posterior commissure).', '🔬 The **ventral part** of the diencephalon includes the **Hypothalamus** and **Subthalamus**.', '💡 The **thalamus** is an oval mass of **grey matter** and functions as a **gateway for the cerebral cortex**.', '❗ The thalamus relays **all sensations except smell**.', '💡 The **diencephalon** includes the **thalamus**, **hypothalamus**, **epithalamus**, and **subthalamus**.', '🔬 The cavity of the diencephalon is the **3rd ventricle**.', '💡 The diencephalon is divided by the **hypothalamic sulcus**.', '🔬 The **dorsal part** of the diencephalon includes the Thalamus, Metathalamus (**MGB** & **LGB**), and Epithalamus (**pineal body**, habenular nuclei, posterior commissure).', '🔬 The **ventral part** of the diencephalon includes the **Hypothalamus** and **Subthalamus**.', '💡 The **thalamus** is an oval mass of **grey matter** and functions as a **gateway for the cerebral cortex**.', '❗ The thalamus relays **all sensations except smell**.', '💡 The thalamus also relays **motor** and **limbic impulses** to the cerebral cortex.', '🔬 The **anterior end** of the thalamus lies posterior to the **interventricular foramen of Monro**.', '🔬 The **posterior end** of the thalamus expands to form the **pulvinar**.', '🔬 The **superior surface** of the thalamus is related to the **choroid plexus** and forms part of the floor of the **lateral ventricle**.', '🔬 The **inferior surface** of the thalamus is separated from the hypothalamus by the **hypothalamic sulcus** and shows the medial & lateral geniculate bodies posteriorly.', '🔬 The **medial surface** of the thalamus forms the **lateral wall of the 3rd ventricle** and connects to the contralateral thalamus via the **interthalamic adhesion (connexus)**.', '🔬 The **lateral surface** of the thalamus is separated from the **lentiform nucleus** by the **internal capsule**.', '💡 The **diencephalon** includes the **thalamus**, **hypothalamus**, **epithalamus**, and **subthalamus**.', '🔬 The cavity of the diencephalon is the **3rd ventricle**.', '💡 The diencephalon is divided by the **hypothalamic sulcus**.', '🔬 The **dorsal part** of the diencephalon includes the Thalamus, Metathalamus (**MGB** & **LGB**), and Epithalamus (**pineal body**, habenular nuclei, posterior commissure).', '🔬 The **ventral part** of the diencephalon includes the **Hypothalamus** and **Subthalamus**.', ' 💡 The **thalamus** is an oval mass of **grey matter** and functions as a **gateway for the cerebral cortex**.', '❗ The thalamus relays **all sensations except smell**.', ' 💡 The thalamus also relays **motor** and **limbic impulses** to the cerebral cortex.', '🔬 The **anterior end** of the thalamus lies posterior to the **interventricular foramen of Monro**.', '🔬 The **posterior end** of the thalamus expands to form the **pulvinar**.', '💡 The **diencephalon** includes the **thalamus**, **hypothalamus**, **epithalamus**, and **subthalamus**.', '🔬 The cavity of the diencephalon is the **3rd ventricle**.', '💡 The diencephalon is divided by the **hypothalamic sulcus**.', '🔬 The **dorsal part** of the diencephalon includes the Thalamus, Metathalamus (**MGB** & **LGB**), and Epithalamus (**pineal body**, habenular nuclei, posterior commissure).', '🔬 The **ventral part** of the diencephalon includes the **Hypothalamus** and **Subthalamus**.', '💡 The **thalamus** is an oval mass of **grey matter** and functions as a **gateway for the cerebral cortex**.', '❗ The thalamus relays **all sensations except smell**.', '🔬 The **ventral part** of the diencephalon includes the **Hypothalamus** and **Subthalamus**.', '💡 The **thalamus** is an oval mass of **grey matter** and functions as a **gateway for the cerebral cortex**.', '❗ The thalamus relays **all sensations except smell**.', '💡 The **thalamus** is an oval mass of **grey matter** and functions as a **gateway for the cerebral cortex**.', '❗ The thalamus relays **all sensations except smell**.', '❗ The thalamus relays **all sensations except smell**.', '💡 The thalamus also relays **motor** and **limbic impulses** to the cerebral cortex.', '🔬 The **anterior end** of the thalamus lies posterior to the **interventricular foramen of Monro**.', '🔬 The **posterior end** of the thalamus expands to form the **pulvinar**.', '🔬 The **superior surface** of the thalamus is related to the **choroid plexus** and forms part of the floor of the **lateral ventricle**.', '🔬 The **inferior surface** of the thalamus is separated from the hypothalamus by the **hypothalamic sulcus** and shows the medial & lateral geniculate bodies posteriorly.', '🔬 The **medial surface** of the thalamus forms the **lateral wall of the 3rd ventricle** and connects to the contralateral thalamus via the **interthalamic adhesion (connexus)**.', '🔬 The **lateral surface** of the thalamus is separated from the **lentiform nucleus** by the **internal capsule**.'],
+        ];
+
+        const mnemonicsContainer = document.getElementById('mnemonics-container');
+        const prevSectionBtn = document.getElementById('prev-section-btn');
+        const nextSectionBtn = document.getElementById('next-section-btn');
+        const currentSectionInfo = document.getElementById('current-section-info');
+
+        const PAGES_PER_SECTION = 20;
+        let currentSectionIndex = 0;
+
+        // Function to render mnemonics for the current section
+        function renderSection() {
+            mnemonicsContainer.innerHTML = ''; // Clear previous content
+
+            const startIndex = currentSectionIndex * PAGES_PER_SECTION;
+            const endIndex = Math.min(startIndex + PAGES_PER_SECTION, pageMnemonicsData.length);
+
+            for (let i = startIndex; i < endIndex; i++) {
+                const pageMnemonics = pageMnemonicsData[i];
+                const pageNumber = i + 1; // Actual page number starting from 1
+                const pageSection = document.createElement('section');
+                pageSection.id = `page-${pageNumber}`;
+                pageSection.className = 'mb-8 p-4 rounded-lg bg-gray-50'; // Background for each page section
+
+                pageSection.innerHTML = `
+                    <div class="page-header rounded-t-lg p-4 mb-4 flex items-center justify-between">
+                        <h2 class="text-xl sm:text-2xl font-semibold text-blue-800">Page ${pageNumber}</h2>
+                    </div>
+                    <div class="grid grid-cols-1 gap-4">
+                        ${pageMnemonics.map(mnemonic => `
+                            <div class="mnemonic-item p-4 rounded-lg shadow-sm flex items-start space-x-3">
+                                <svg class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+                                </svg>
+                                <p class="text-gray-700 text-base flex-grow">${mnemonic}</p>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+                mnemonicsContainer.appendChild(pageSection);
+            }
+            updatePaginationControls();
+        }
+
+        // Function to update the state of pagination buttons and info text
+        function updatePaginationControls() {
+            const totalSections = Math.ceil(pageMnemonicsData.length / PAGES_PER_SECTION);
+            const startPage = (currentSectionIndex * PAGES_PER_SECTION) + 1;
+            const endPage = Math.min((currentSectionIndex + 1) * PAGES_PER_SECTION, pageMnemonicsData.length);
+
+            prevSectionBtn.disabled = currentSectionIndex === 0;
+            nextSectionBtn.disabled = currentSectionIndex >= totalSections - 1;
+
+            currentSectionInfo.textContent = `Pages ${startPage} - ${endPage} (Section ${currentSectionIndex + 1} of ${totalSections})`;
+        }
+
+        // Event listeners for pagination buttons
+        prevSectionBtn.addEventListener('click', () => {
+            if (currentSectionIndex > 0) {
+                currentSectionIndex--;
+                renderSection();
+                window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to top on section change
+            }
+        });
+
+        nextSectionBtn.addEventListener('click', () => {
+            const totalSections = Math.ceil(pageMnemonicsData.length / PAGES_PER_SECTION);
+            if (currentSectionIndex < totalSections - 1) {
+                currentSectionIndex++;
+                renderSection();
+                window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to top on section change
+            }
+        });
+
+        // Initial render when the page loads
+        document.addEventListener('DOMContentLoaded', renderSection);
+    </script>
+</body>
+</html>
